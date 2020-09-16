@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="warn">
+    <properties>
+        <property name="LOG_FILE_PATTERN">
+            [%d{yyyy-MM-dd_HH:mm:ss.SSS}][%-5level]%logger[%M:%L] - %msg%n
+        </property>
+    </properties>
+
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_FILE_PATTERN}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO" includeLocation="true">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+        <logger name="cn.ghostcloud" level="DEBUG"/>
+        <logger name="org.springframework.boot.actuate.trace" level="INFO"/>
+        <logger name="org.springframework" level="INFO"/>
+        <logger name="com.sun.jersey" level="INFO"/>
+        <logger name="org.apache" level="INFO"/>
+        <logger name="javax.management" level="INFO"/>
+        <logger name="javax.activation" level="INFO"/>
+        <logger name="org.xnio.nio" level="INFO"/>
+        <logger name="org.hibernate.validator" level="INFO"/>
+        <logger name="org.mybatis.spring" level="INFO"/>
+    </Loggers>
+
+</configuration>

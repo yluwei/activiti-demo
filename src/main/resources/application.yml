@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: activiti-demo
+  main:
+    allow-bean-definition-overriding: true
+  aop:
+    proxy-target-class: false
+  activiti:
+    database-schema-update: true
+    async-executor-activate: false
+    history-level: full
+    check-process-definitions: false
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/activiti?serverTimezone=GMT%2B8
+      username: root
+      password: 123456
+      initial-size: 20
+      max-active: 50
+      min-idle: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      remove-abandoned-timeout: 1800
+      remove-abandoned: true
+      validation-query: "select 1"
+      test-while-idle: true
+      test-on-borrow: true
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      default-auto-commit: false
+      query-timeout: 15
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 8080
