@@ -3,6 +3,8 @@ package cn.ylw.activiti.controller;
 import cn.ylw.activiti.service.TestService;
 import cn.ylw.activiti.util.ApplicationContextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/9/16
  */
 @RestController
-public class TestController {
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+public class ProtoTypeController {
 
     @Autowired
     private TestService testService;
@@ -21,10 +24,12 @@ public class TestController {
     @Autowired
     private TestService testService1;
 
-    @GetMapping("/test")
+    @GetMapping("/proto")
     public String test() {
         boolean b = testService == testService1;
         TestService bean = ApplicationContextUtil.getApplicationContext().getBean(TestService.class);
+        TestService bean2 = ApplicationContextUtil.getApplicationContext().getBean(TestService.class);
+        System.out.println(bean == bean2);
         System.out.println(testService == bean);
         System.out.println(b);
         return b + "";
