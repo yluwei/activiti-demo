@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ylw.activiti.dao.VacationDao">
+    <select id="getUser" parameterType="java.lang.String" resultType="cn.ylw.activiti.entity.User">
+        select
+        *
+        from user
+        where role = #{type}
+    </select>
+    <select id="getVacation" parameterType="java.lang.Integer" resultType="cn.ylw.activiti.entity.Vacation">
+        select
+        *
+        from vacation
+        where id = #{id}
+    </select>
+    <update id="updateVacation" parameterType="cn.ylw.activiti.entity.Vacation">
+        update
+        vacation
+        set procdef_id = #{procdefId}
+        where id = #{id}
+    </update>
+</mapper>
