@@ -29,6 +29,12 @@ public class MybatisTest {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
+    @Autowired
+    private VacationDao vacationDao;
+
+    @Autowired
+    private VacationDao vacationDao1;
+
     @Test
     public void test() {
         Configuration configuration = sqlSessionFactory.getConfiguration();
@@ -42,6 +48,7 @@ public class MybatisTest {
         sqlSession1.commit();
         VacationDao mapper2 = sqlSession2.getMapper(VacationDao.class);
         Vacation vacation3 = mapper2.getVacation(1);
+        System.out.println(vacationDao);
 
     }
 }
