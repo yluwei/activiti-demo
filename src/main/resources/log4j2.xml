@@ -15,7 +15,7 @@
         <Root level="INFO" includeLocation="true">
             <AppenderRef ref="STDOUT"/>
         </Root>
-        <logger name="cn.ghostcloud" level="DEBUG"/>
+        <logger name="cn.ylw" level="DEBUG"/>
         <logger name="org.springframework.boot.actuate.trace" level="INFO"/>
         <logger name="org.springframework" level="INFO"/>
         <logger name="com.sun.jersey" level="INFO"/>
@@ -24,7 +24,7 @@
         <logger name="javax.activation" level="INFO"/>
         <logger name="org.xnio.nio" level="INFO"/>
         <logger name="org.hibernate.validator" level="INFO"/>
-        <logger name="org.mybatis.spring" level="INFO"/>
+        <logger name="org.mybatis.spring" level="DEBUG"/>
     </Loggers>
 
 </configuration>

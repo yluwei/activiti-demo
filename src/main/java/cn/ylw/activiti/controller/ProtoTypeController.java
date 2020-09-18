@@ -1,10 +1,10 @@
 package cn.ylw.activiti.controller;
 
+import cn.ylw.activiti.dao.VacationDao;
 import cn.ylw.activiti.service.TestService;
 import cn.ylw.activiti.util.ApplicationContextUtil;
+import org.apache.ibatis.binding.MapperProxy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/9/16
  */
 @RestController
-@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class ProtoTypeController {
 
     @Autowired
@@ -23,6 +22,12 @@ public class ProtoTypeController {
 
     @Autowired
     private TestService testService1;
+
+    @Autowired
+    private VacationDao vacationDao;
+
+    @Autowired
+    private VacationDao vacationDao1;
 
     @GetMapping("/proto")
     public String test() {
@@ -32,6 +37,9 @@ public class ProtoTypeController {
         System.out.println(bean == bean2);
         System.out.println(testService == bean);
         System.out.println(b);
+        System.out.println(vacationDao1);
+        MapperProxy vacationDao = (MapperProxy) this.vacationDao;
+        MapperProxy vacationDao1 = (MapperProxy) this.vacationDao1;
         return b + "";
     }
 }
